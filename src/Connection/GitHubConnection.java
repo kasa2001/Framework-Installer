@@ -36,14 +36,16 @@ public class GitHubConnection {
         GitHubConnection.connection.setRequestProperty("Content-Type", "application/json");
     }
 
-    public void connect() {
+    public void connect()  {
 
         try {
 
             GitHubConnection.connection.connect();
 
-            if (connection.getResponseCode() == 200) {
+            if (this.response() == 200) {
                 System.out.println("Połączenie udane");
+            } else {
+                throw new IOException("Połączenie nie zrealizowane. Konieczny kod 200 z api github-a");
             }
 
         } catch (IOException e) {
@@ -52,6 +54,10 @@ public class GitHubConnection {
 
         }
 
+    }
+
+    public int response() throws IOException {
+        return  GitHubConnection.connection.getResponseCode();
     }
 
     public void disconnect() {
@@ -123,10 +129,6 @@ public class GitHubConnection {
             System.err.println(e.getMessage());
 
         }
-    }
-
-    public void toConsole() {
-        System.out.println(this.item);
     }
 
     public String[] getJson() {

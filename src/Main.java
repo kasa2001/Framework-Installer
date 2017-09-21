@@ -1,4 +1,8 @@
 import Connection.GitHubConnection;
+import Window.Frame;
+
+import java.awt.*;
+
 
 public class Main {
 
@@ -7,7 +11,16 @@ public class Main {
         connection.setHeaderJSON();
         connection.setInput();
         connection.connect();
+
+
         connection.readDocument();
         connection.disconnect();
+
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Frame();
+            }
+        });
     }
 }
