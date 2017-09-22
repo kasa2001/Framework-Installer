@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class GitHubConnection {
 
-    private static HttpsURLConnectionImpl connection;
+    static HttpsURLConnectionImpl connection;
     private String item;
     private String[] json;
 
@@ -71,43 +71,6 @@ public class GitHubConnection {
         connection.setDoInput(true);
         connection.setDoOutput(true);
 
-    }
-
-    public void readJSON() {
-        try {
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(GitHubConnection.connection.getInputStream()));
-            this.item = br.readLine();
-            br.close();
-
-        } catch (IOException e) {
-
-            System.err.println(e.getMessage());
-
-        }
-    }
-
-    public void prepareJSON() {
-
-        String[] temp = this.item.split("},");
-
-        this.json = new String[temp.length];
-
-        for (int i=0; i<temp.length; i++) {
-
-            if (i==0)
-                this.json[i] = temp[i].replace("[", "");
-
-            else if (i == (temp.length-1))
-                this.json[i] = temp[i].replace("]", "");
-
-            else
-                this.json[i] = temp[i];
-
-            if (i!=(temp.length-1))
-                this.json[i] += "}";
-
-        }
     }
 
     public void readDocument() {

@@ -10,10 +10,6 @@ public class Element {
         this.value = value;
     }
 
-    public Element(String object) {
-
-    }
-
     public String getProperty() {
         return this.property;
     }
