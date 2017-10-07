@@ -1,11 +1,11 @@
 package JSON;
 
-public class Element {
+public class JSONElement {
     private String property;
     private String value;
-    private Element element;
+    private JSONElement JSONElement;
 
-    public Element(String property, String value) {
+    public JSONElement(String property, String value) {
         this.property = property;
         this.value = value;
     }

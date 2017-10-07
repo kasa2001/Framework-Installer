@@ -10,7 +10,6 @@ public class GitHubConnection {
 
     static HttpsURLConnectionImpl connection;
     private String item;
-    private String[] json;
 
     public GitHubConnection(String page) {
 
@@ -42,9 +41,7 @@ public class GitHubConnection {
 
             GitHubConnection.connection.connect();
 
-            if (this.response() == 200) {
-                System.out.println("Połączenie udane");
-            } else {
+            if (this.response() != 200) {
                 throw new IOException("Połączenie nie zrealizowane. Konieczny kod 200 z api github-a");
             }
 
@@ -94,12 +91,12 @@ public class GitHubConnection {
         }
     }
 
-    public String[] getJson() {
-        return this.json;
-    }
-
     public static InputStream getInputStream() throws IOException {
         return GitHubConnection.connection.getInputStream();
+    }
+
+    public String getHeader(String item) {
+        return GitHubConnection.connection.getHeaderField("Content-Type");
     }
 
 }

@@ -1,8 +1,0 @@
-<component name="libraryTable">
-  <library name="org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5" type="repository">
-    <properties maven-id="org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5" />
-    <CLASSES />
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

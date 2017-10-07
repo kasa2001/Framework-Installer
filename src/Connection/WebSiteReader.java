@@ -1,7 +1,5 @@
 package Connection;
 
-import JSON.Element;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,7 +69,6 @@ public class WebSiteReader {
 
         for (int i=0; i<array.length; i++) {
             if (items[i][0].equals(property)) {
-                System.out.println(items[i][1]);
                 return items[i][1];
             }
         }
